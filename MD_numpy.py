@@ -57,18 +57,19 @@ utermo = 1
 #utermo=int(math.ceil(icp))
 
 
-#   inicializa listas de velocidades y posiciones 
-vx = np.array([0. for i in range(npart)])
-vy = np.array([0. for i in range(npart)])
+# Inicializa listas de velocidades y posiciones 
+# Creamos vectores de ceros con la funcion zeros de la libreria numpy
+vx = np.zeros(npart)
+vy = np.zeros(npart)
 
-x = np.array([0. for i in range(npart)])
-y = np.array([0. for i in range(npart)])
+x = np.zeros(npart)
+y = np.zeros(npart)
 
-#   inicializa listas temporales de T y a2 
-temp = np.array([0. for i in range(nt+1)])
-a2 = np.array([0. for i in range(nt+1)])
+#  inicializa listas temporales de T y a2 
+temp = np.zeros(nt+1)
+a2 = np.zeros(nt+1)
 
-#inicializa listas relacionadas con las colisiones
+# inicializa listas relacionadas con las colisiones
 listacol = []
 listacol_orden = []
 ij = []
@@ -276,22 +277,26 @@ def colisiona(par):
 def write_micr_state(ja):
     global vx, vy, x, y
     # formatea el nombre de archivo de posiciones y escribelo en disco
+    # Escribimos los datos de todos los microestados en un único archivo, para ello hacemos uso del argumento "append"
 
     print ("####### it: ########", it) # imprime it (n. de cols.) #opcional
     print ("####### no. archivo: ########", ja) # n. de archivo #opcional
-    inum='{0:04d}'.format(ja)
-
-    nombre='/home/fvega/Datos/pyMD/xy'+inum+'.dat'
-    with open(nombre,'w') as archivo:
-        for i in range(npart):
-            archivo.write('{0:10.2f} {1:10.2f}\n'.format( x[i], y[i]))
-    archivo.closed
-
-    # formatea el nombre de archivo de posiciones 
-    nombre='/home/fvega/Datos/pyMD/vxvy'+inum+'.dat'
-    with open(nombre,'w') as archivo:
+    
+    # inum='{0:04d}'.format(ja)
+    nombre='xy.dat'
+    with open(nombre,'a') as archivo:
         for i in range(npart):
             archivo.write('{0:10.2f} {1:10.2f}\n'.format( vx[i], vy[i]))
+        archivo.write("\n")
+    archivo.closed
+
+    # Escribimos los datos de todos los microestados en un único archivo, para ello hacemos uso del argumento "append"
+    # formatea el nombre de archivo de posiciones 
+    nombre='vxvy.dat'
+    with open(nombre,'a') as archivo:
+        for i in range(npart):
+            archivo.write('{0:10.2f} {1:10.2f}\n'.format( vx[i], vy[i]))
+        archivo.write("\n")
     archivo.closed
 
 
@@ -349,7 +354,7 @@ def calculate_averages(ja):
 
 # wites average fields evolution, in a final file
 def write_averages_evol():
-    nombre='/home/fvega/Datos/pyMD/temp.dat'
+    nombre='temp.dat'
     xy= pd.DataFrame( np.array([[temp[i],a2[i]] for i in range(len(temp))]) )
     xy.to_csv(nombre, sep='\t',\
                header =['T','a2'] , index=False,float_format='%8.5f')
