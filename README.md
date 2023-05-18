@@ -7,16 +7,16 @@
 En primer lugar, se importan las librerías necesarias. A continuación se declaran los parámetros que describen el sistema a estudiar y se inicializan los vectores de las posiciones y las velocidades de las partículas y las listas que contendrán la información sobre las colisiones.
 
 La segunda parte del programa consiste en las definiciones de las funciones que se van a utilizar para modelar el sistema. Las funciones que se definen son las siguientes:
-    1. propaga: avanza el estado de las partículas en un tiempo r.
-    2. midedist: mide las distancias entre las partículas.
-    3. tcol: mide el tiempo de colisión entre cada par de partículas.
-    4. tpcol: mide el tiempo de colisión entre las partículas y las paredes del sistema.
-    5. pcolisiona: actualiza las velocidades de una partícula que colisiona con la pared.
-    6. colisiona: actualiza las velocidades de dos partículas que colisionan entre sí.
-    7. write_micr_state: escribe las posiciones y las velocidades de las partículas en cada estado en un fichero.
-    8. initialize_random: inicializa las partículas con velocidades y posiciones aleatorias.
-    9. calculate_average: mide la temperatura media del sistema.
-    10. write_averages_evol: escribe en un fichero los resultados de calcular la temperatura media en cada estado.
+1. propaga: avanza el estado de las partículas en un tiempo dt.
+2. midedist: mide las distancias entre las partículas.
+3. tcol: mide el tiempo de colisión entre cada par de partículas.
+4. tpcol: mide el tiempo de colisión entre las partículas y las paredes del sistema.
+5. pcolisiona: actualiza las velocidades de una partícula que colisiona con la pared.
+6. colisiona: actualiza las velocidades de dos partículas que colisionan entre sí.
+7. write_micr_state: escribe las posiciones y las velocidades de las partículas en cada estado en un fichero.
+8. initialize_random: inicializa las partículas con velocidades y posiciones aleatorias.
+9. calculate_average: mide la temperatura media del sistema.
+10. write_averages_evol: escribe en un fichero los resultados de calcular la temperatura media en cada estado.
 
 Por último, se hace uso de las funciones para simular la evolución del sistema. Para ello, se imprimen por pantalla los parámetros elegidos para el sistema y después se inicializa este de forma aleatoria haciendo uso de la función initialize_random. Posteriormente se usan bucles anidados que, haciendo uso de las funciones definidas van calculando la evolución del sistema y escribiéndolas en un fichero en cada paso. 
  
