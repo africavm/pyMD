@@ -40,7 +40,7 @@ A contirnuación calculamos el módulo de la velocidad al cuadrado y, obteniendo
 
 Vamos ahora a comparar la distribución de velocidades de las partículas de nuestro sistema con la función de Maxwell. Definimos entonces la función de maxwell y la representamos frente al histograma que obtenemos a partir de los datos del modulo de las velocidades de nuestras partículas. Para hacer la representación utilizamos las funciones "hist" y "plot" de la librería matplotlib. La figura que obtenemos es la siguiente:
 
-<image src="imagenes/Figure_1.png" alt="Descripción de la imagen">
+<image src="Figura 1.png" alt="Figura 1: Distribución de velocidades">
 
 Vemos que la distribución de velocidades que hemos obtenido a partir de la simulación coincide bastante bien con los valores teóricos esperados.
 
