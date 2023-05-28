@@ -21,13 +21,30 @@ from operator import itemgetter, attrgetter
 # import matplotlib # esta es para usar graficos python. a implementar en nuevas versiones
 from os import system, remove
 import pandas as pd
+import os
+
+# Como en el fichero ahora los datos se escriben con el argumento "append", hacemos que si ya existe el fichero se elimine,
+# ya que si no se irían añadiendo líneas de datos en cada ejecución del programa
+import os
+
+# Comprobamos si existe el archivo
+if os.path.exists('xy.dat'):
+    # Si ya existe el archivo borramos el contenido
+    with open('xy.dat', 'w') as archivo:
+        archivo.write('')  # Sobrescribir el contenido con una cadena vacía
+
+# Comprobamos si existe el archivo
+if os.path.exists('vxvy.dat'):
+    # Si ya existe el archivo borramos el contenido
+    with open('vxvy.dat', 'w') as archivo:
+        archivo.write('')  # Sobrescribir el contenido con una cadena vacía
 
 
 # radio de las particulas
 R=1.
 # tamano del sistema
-LX = 10*R #112.09982432795857*R
-LY = 10*R #112.09982432795857*R
+LX = 20*R #112.09982432795857*R
+LY = 20*R #112.09982432795857*R
 # tamano del sistema menos un radio (para situar las particulas)
 LXR = LX*0.5-R
 LYR = LY*0.5-R
@@ -36,7 +53,7 @@ LYR = LY*0.5-R
 # numero de particulas
 #npart = int(math.floor(nu*LX*LY/(math.pi*R*R)))
 
-npart = 10
+npart = 50
 # numero de pasos temporales (cols.)
 nt = 100 * npart
 
@@ -279,15 +296,17 @@ def write_micr_state(ja):
     # formatea el nombre de archivo de posiciones y escribelo en disco
     # Escribimos los datos de todos los microestados en un único archivo, para ello hacemos uso del argumento "append"
 
-    print ("####### it: ########", it) # imprime it (n. de cols.) #opcional
-    print ("####### no. archivo: ########", ja) # n. de archivo #opcional
+    #print ("####### it: ########", it) # imprime it (n. de cols.) #opcional
+    #print ("####### no. archivo: ########", ja) # n. de archivo #opcional
     
     # inum='{0:04d}'.format(ja)
     nombre='xy.dat'
     with open(nombre,'a') as archivo:
         for i in range(npart):
-            archivo.write('{0:10.2f} {1:10.2f}\n'.format( vx[i], vy[i]))
-        archivo.write("\n")
+            archivo.write('{0:10.2f} {1:10.2f}'.format( x[i], y[i]))
+            archivo.write("       Estado no. ")
+            archivo.write(str(ja))
+            archivo.write("\n")
     archivo.closed
 
     # Escribimos los datos de todos los microestados en un único archivo, para ello hacemos uso del argumento "append"
@@ -295,8 +314,10 @@ def write_micr_state(ja):
     nombre='vxvy.dat'
     with open(nombre,'a') as archivo:
         for i in range(npart):
-            archivo.write('{0:10.2f} {1:10.2f}\n'.format( vx[i], vy[i]))
-        archivo.write("\n")
+            archivo.write('{0:10.2f} {1:10.2f}'.format( vx[i], vy[i]))
+            archivo.write("       Estado no. ")
+            archivo.write(str(ja))
+            archivo.write("\n")
     archivo.closed
 
 
@@ -357,7 +378,7 @@ def write_averages_evol():
     nombre='temp.dat'
     xy= pd.DataFrame( np.array([[temp[i],a2[i]] for i in range(len(temp))]) )
     xy.to_csv(nombre, sep='\t',\
-               header =['T','a2'] , index=False,float_format='%8.5f')
+               header = False , index=False,float_format='%8.5f')
 
 
 ##########################################################
@@ -375,7 +396,8 @@ print("simulacion MD, alfa= ", alfa)
 print("cols/part (total): ", ncp)
 #print("cols/part entre snapshots: ", ncp)
 print("its. entre snapshots: ", utermo)
-print("no. de archivos: ", nt/utermo)
+# Cambiamos "np. de archivos" por "no. de estados" ya que ahora todos los estados se almacenan en un mismo archivo
+print("no. de estados: ", nt/utermo)
 
 
 
