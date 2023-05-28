@@ -41,13 +41,13 @@ A contirnuación calculamos el módulo de la velocidad al cuadrado y, obteniendo
 
 Vamos ahora a comparar la distribución de velocidades de las partículas de nuestro sistema con la función de Maxwell. Definimos entonces la función de maxwell y la representamos frente al histograma que obtenemos a partir de los datos del modulo de las velocidades de nuestras partículas. Para hacer la representación utilizamos las funciones "hist" y "plot" de la librería matplotlib. La figura que obtenemos es la siguiente:
 
-<image src="imagenes/Figura 1.png" alt="Figura 1: Distribución de velocidades">
+<image src="Figura 1.png" alt="Figura 1: Distribución de velocidades">
 
 Vemos que la distribución de velocidades que hemos obtenido a partir de la simulación coincide bastante bien con los valores teóricos esperados.
 
 Por último, calculamos la función de autocorrelación para varios intervalos. Para ello, en cada paso vamos aumentantando el número de saltos temporales y calculamos los coeficientes de autocorrelación de cada partícula. Después obtenemos la media de todas las partículas para cada paso y guardamos este valor en un vector. Si representamos gráficamente obtenemos la siguiente figura:
 
-<image src="imagenes/Figura_2.png" alt="Figura 1: Coeficiente de autocorrelación de velocidades">
+<image src="Figura_2.png" alt="Figura 1: Coeficiente de autocorrelación de velocidades">
 
 Vemos que el coeficiente parte de 1 y decae hasta valores muy próximos a 0 en 200 desplazamientos. Podemos concluir entonces que a los 200 desplazamientos temporales prácticamente todas las partículas del sistema han modificado su velocidad.
 
@@ -57,19 +57,19 @@ En esta práctica vamos a estudiar las propiedades estructurales de nuestro sist
 
 Una vez que tenemos los datos de las posiciones de nuestras partículas podemos calcular la función de distribución radial. Vamos comparando las distancias entre cada par de partículas en todos los estados y las almacenamos en el vector distancias. Si representamos en un histograma los datos obtenemos la siguiente gráfica:
 
-<image src="imagenes/Figura 5.png" alt="Figura 5: Distribución radial">
+<image src="Figura 5.png" alt="Figura 5: Distribución radial">
 
 En el histograma vemos que, como era de esperar, ningun par de partículas tiene entre sí una distancia menor de un radio, y que la mayoría de partículas tienen una distancian entre ellas de entre 5 y 15 radios. Esto significa que las partículas están más o menos distribuidas de forma uniforme por el plano.
 
 Pasamos ahora a calcular la triangulación de Delaunay. La triangulación de Delaunay es una forma de dividir el plano en triángulos de forma que el circulo cincunscrito en cada triángulo únicamente contiene a una partícula del sistema. Según el grado de similitud de los triángulos que dividen el plano podemos estimar como es la estructura de la red. Si hacemos la triangulación de Delaunay de nuestro sistema de partículas en el sistema incial obtenemos la siguiente imagen:
 
-<image src="imagenes/Figura 3.png" alt="Triangulación de Delaunay del estado inicial">
+<image src="Figura 3.png" alt="Triangulación de Delaunay del estado inicial">
 
 Vemos que sobre todo en la parte central del plano, los triángulos son más o menos iguales, por lo que podemos suponer que las partículas estan distribuidas de forma bastante uniforme. Podemos ver una representación dinámica de la triangulación en cada estado del sistema ejecutando el script "prop_est.py".
 
 Por último, vamos a hacer la representación gráfica de la teselación de Voronoi. La teselación de Voronoi se obtiene dividiendo el plano en celdas que se forman por las intersecciones de las mediatrices de los triangulos obtenidos mediante la triangulación de Delaunay. La teselación de Voronoi de nuestro sistema en el estado inicial tiene la siguiente forma:
 
-<image src="imagenes/Figura 4.png" alt="Teselación de Voronoi del estado inicial">
+<image src="Figura 4.png" alt="Teselación de Voronoi del estado inicial">
 Las celdas obtenidas mediante esta teselación tienen la particularidad de que cada una de las celdas solo contiene una partícula y de que todos los puntos de dentro de la celda están mas cerca de la partícula encerrada por la celda que de las demas partículas del sistema. La teselación de Voronoi nos da por tanto la región de influencia de cada una de las partículas del sistema.
 
 Si observamos la imagen obtenida, vemos que en nuestro sistema, todas las partículas tienen celdas de aproximadamente el mismo tamaño. Se puede ver una representación dinámica de la teselación en cada uno de los estados del sistema ejecutando el script "prop_est.py".
