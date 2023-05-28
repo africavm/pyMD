@@ -2,7 +2,8 @@
 # 02/03/2018
 
 
-## Resumen programa
+## Práctica 1
+## Resumen del programa
 
 En primer lugar, se importan las librerías necesarias. A continuación se declaran los parámetros que describen el sistema a estudiar y se inicializan los vectores de las posiciones y las velocidades de las partículas y las listas que contendrán la información sobre las colisiones.
 
@@ -20,7 +21,7 @@ La segunda parte del programa consiste en las definiciones de las funciones que 
 
 Por último, se hace uso de las funciones para simular la evolución del sistema. Para ello, se imprimen por pantalla los parámetros elegidos para el sistema y después se inicializa este de forma aleatoria haciendo uso de la función initialize_random. Posteriormente se usan bucles anidados que, haciendo uso de las funciones definidas van calculando la evolución del sistema y escribiéndolas en un fichero en cada paso. 
  
-## Práctica 1: Cambios introducidos (18/05/2023)
+## Cambios introducidos (18/05/2023)
 
 1. Modificación del método de inicialización de los vectores utilizando la función np.zeros que crea directamente un vector de ceros de la dimensión deseada.
 
@@ -28,7 +29,7 @@ Por último, se hace uso de las funciones para simular la evolución del sistema
 
 3. Modificación del código de gnuplot para que represente los datos contenidos en un único fichero. Se utiliza un bucle que en cada iteración representa las partículas en cada uno de los estados.
 
-## Práctica 2: Análisis de propiedades dinámicas del sistema (25/05/2023)
+## Práctica 2: Análisis de propiedades dinámicas del sistema (28/05/2023)
 
 En esta práctica vamos a realizar un estudio de las propiedades dinámicas de nuestro sistema. En primer lugar, para poder estudiar adecuadamente las propiedades, aumentamos el número de partículas y el tamaño del sistema del programa original. Creamos un nuevo script en el que se calcularán, a partir de los ficheros generados con la información del sistema, las diferentes propiedades dinámicas.
 
@@ -44,4 +45,8 @@ Vamos ahora a comparar la distribución de velocidades de las partículas de nue
 
 Vemos que la distribución de velocidades que hemos obtenido a partir de la simulación coincide bastante bien con los valores teóricos esperados.
 
-Por último, calculamos la función de autocorrelación para varios intervalos. Vemos que a los 100 desplazamientos, el coeficiente de correlación medio está en torno a 0, lo que significa que a los 100 pasos de evolución del sistema, prácticamente todas las partículas han colisionado.
+Por último, calculamos la función de autocorrelación para varios intervalos. Para ello, en cada paso vamos aumentantando el número de saltos temporales y calculamos los coeficientes de autocorrelación de cada partícula. Después obtenemos la media de todas las partículas para cada paso y guardamos este valor en un vector. Si representamos gráficamente obtenemos la siguiente figura:
+
+<image src="Figura_2.png" alt="Figura 1: Coeficiente de autocorrelación de velocidades">
+
+Vemos que el coeficiente parte de 1 y decae hasta valores moy próximos a 0 en 200 desplazamientos. Podemos concluir entonces que a los 200 desplazamientos temporales prácticamente todas las partículas del sistema han modificado su velocidad.
