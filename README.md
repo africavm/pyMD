@@ -72,4 +72,4 @@ Por último, vamos a hacer la representación gráfica de la teselación de Voro
 <image src="Figura 4.png" alt="Teselación de Voronoi del estado inicial">
 Las celdas obtenidas mediante esta teselación tienen la particularidad de que cada una de las celdas solo contiene una partícula y de que todos los puntos de dentro de la celda están mas cerca de la partícula encerrada por la celda que de las demas partículas del sistema. La teselación de Voronoi nos da por tanto la región de influencia de cada una de las partículas del sistema.
 
-Si observamos la imagen obtenida, vemos que en nuestro sistema, todas las partículas tienen celdas de aproximadamente el mismo tamaño. Se puede ver una representación dinámica de la teselación en cada uno de los estados del sistema ejecutando el script "prop_est.py".
+Si observamos la imagen obtenida vemos que en nuestro sistema todas las partículas tienen celdas de aproximadamente el mismo tamaño. Se puede ver una representación dinámica de la teselación en cada uno de los estados del sistema ejecutando el script "prop_est.py".
