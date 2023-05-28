@@ -53,7 +53,7 @@ Vemos que el coeficiente parte de 1 y decae hasta valores muy próximos a 0 en 2
 
 ## Práctica 3: Análisis de las propiedades estructurales del sistema (28/05/2023)
 
-En esta práctica vamos a estudiar las propiedades estructurales de nuestro sistema de partículas en 2 dimensiones. Para ello, creamos un nuevo script en el que a partir de los ficheros .dat importamos los datos de las posiciones de las partículas del sistema en cada uno de los estados.
+En esta práctica vamos a estudiar las propiedades estructurales de nuestro sistema de partículas en 2 dimensiones. Para ello, creamos un nuevo script llamado "prop_est.py"en el que a partir de los ficheros .dat importamos los datos de las posiciones de las partículas del sistema en cada uno de los estados.
 
 Una vez que tenemos los datos de las posiciones de nuestras partículas podemos calcular la función de distribución radial. Vamos comparando las distancias entre cada par de partículas en todos los estados y las almacenamos en el vector distancias. Si representamos en un histograma los datos obtenemos la siguiente gráfica:
 
