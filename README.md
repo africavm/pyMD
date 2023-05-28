@@ -49,4 +49,4 @@ Por último, calculamos la función de autocorrelación para varios intervalos. 
 
 <image src="Figura_2.png" alt="Figura 1: Coeficiente de autocorrelación de velocidades">
 
-Vemos que el coeficiente parte de 1 y decae hasta valores moy próximos a 0 en 200 desplazamientos. Podemos concluir entonces que a los 200 desplazamientos temporales prácticamente todas las partículas del sistema han modificado su velocidad.
+Vemos que el coeficiente parte de 1 y decae hasta valores muy próximos a 0 en 200 desplazamientos. Podemos concluir entonces que a los 200 desplazamientos temporales prácticamente todas las partículas del sistema han modificado su velocidad.
